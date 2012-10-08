@@ -131,3 +131,6 @@ Using AsyncPlayerChatEvent instead of PlayerChatEvent (deprecated).
 Adding lookaround option.
 
 1.4.3
+
+Adding "teleport" parameter.
+The update information will not show an error anymore if the version file can't be downloaded.
