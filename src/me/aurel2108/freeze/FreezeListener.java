@@ -74,7 +74,7 @@ public class FreezeListener implements Listener {
 	@EventHandler
 	public void onPlayerTeleport(PlayerTeleportEvent event)
 	{
-		if(plugin.isFrozen(event.getPlayer())) {
+		if(plugin.isFrozen(event.getPlayer()) && !plugin.getConfig().getBoolean("teleport")) {
 			
 			if(!plugin.getConfig().getBoolean("lookaround"))
 				event.setTo(event.getFrom());

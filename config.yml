@@ -18,6 +18,9 @@
 # If you let alertupdate to true, when an op player or a player who have the freeze.alertupdate node connects, he will see a message informing of a new update
 #
 # If you let lookaround to false, players will not see around them, but if you set it to true, they will.
+#
+# If you let teleport to false, players wont be teleported by commands like /spawn or /home, but if you set it to true, they will.
+
 commands: true
 speak: true
 save: true
@@ -25,3 +28,4 @@ message: false
 damage: false
 alertupdate: true
 lookaround: false
+teleport: false

@@ -5,14 +5,13 @@ package me.aurel2108.freeze;
  */
 
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
 public class Download
 {
-    public static void getFile(String host, String dest)
+    public static boolean getFile(String host, String dest)
     {
         InputStream input = null;
         FileOutputStream writeFile = null;
@@ -26,7 +25,7 @@ public class Download
             if (fileLength == -1)
             {
                 System.out.println("Invalid URL or file.");
-                return;
+                return false;
             }
 
             input = connection.getInputStream();
@@ -39,10 +38,9 @@ public class Download
                 writeFile.write(buffer, 0, read);
             writeFile.flush();
         }
-        catch (IOException e)
+        catch (Exception e)
         {
-            System.out.println("Error while trying to download the file.");
-            e.printStackTrace();
+            return false;
         }
         finally
         {
@@ -51,11 +49,13 @@ public class Download
                 writeFile.close();
                 input.close();
             }
-            catch (IOException e)
+            catch (Exception e)
             {
-                e.printStackTrace();
+                return false;
             }
         }
+        
+        return true;
     }
 
     public static void main()

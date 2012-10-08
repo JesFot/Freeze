@@ -110,28 +110,34 @@ public class Freeze extends JavaPlugin {
         
         log.info("Searching for update...");
         
-        Download.getFile("http://files.aurel2108.eu/freezeversion.txt", "plugins/Freeze/");
-        File dir = new File("plugins/Freeze");
-        dir.mkdirs();
-        File file = new File(dir + "/freezeversion.txt");
-        String vs = "";
-        try {
-          FileReader fr = new FileReader(file);
-          BufferedReader br = new BufferedReader(fr);
-          vs = br.readLine();
-          br.close();
-          fr.close();
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-        
-        if(!vs.equalsIgnoreCase(getDescription().getVersion()))
+        if(Download.getFile("http://files.aurel2108.eu/freezeversion.txt", "plugins/Freeze/"))
         {
-        	log.info("New version found : " + vs);
-        	log.info("Check http://dev.bukkit.org/server-mods/freeze for more informations and for download it.");
+	        File dir = new File("plugins/Freeze");
+	        dir.mkdirs();
+	        File file = new File(dir + "/freezeversion.txt");
+	        String vs = "";
+	        try {
+	          FileReader fr = new FileReader(file);
+	          BufferedReader br = new BufferedReader(fr);
+	          vs = br.readLine();
+	          br.close();
+	          fr.close();
+	        } catch (Exception e) {
+	          e.printStackTrace();
+	        }
+	        
+	        if(!vs.equalsIgnoreCase(getDescription().getVersion()))
+	        {
+	        	log.info("New version found : " + vs);
+	        	log.info("Check http://dev.bukkit.org/server-mods/freeze for more informations and for download it.");
+	        }
+	        else
+	        	log.info("No new update detected.");
         }
         else
-        	log.info("No new update detected.");
+        {
+        	log.warning("The version file can't be downloaded : can't check if there is a new version.");
+        }
         
 	}
 	
