@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+ 
+    <groupId>me.aurel2108.freeze</groupId>
+    <artifactId>Freeze</artifactId>
+    <version>1.4.3</version>
+    <name>Freeze</name>
+    <url>http://dev.bukkit.org/server-mods/freeze</url>
+    <packaging>jar</packaging>
+    <description>Freeze players.</description>
+ 
+    <scm>
+        <!-- CHANGE ME -->
+        <connection>scm:git:git://github.com/aurel2108/Freeze.git</connection>
+        <url>https://github.com/aurel2108/Freeze</url>
+        <developerConnection>scm:git:git@github.com:aurel2108/Freeze.git</developerConnection>
+    </scm>
+ 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+ 
+    <repositories>
+        <repository>
+            <id>bukkit-repo</id>
+            <url>http://repo.bukkit.org/artifactory/repo</url>
+        </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+  			<groupId>org.bukkit</groupId>
+  			<artifactId>bukkit</artifactId>
+ 			<version>1.3.2-2.0</version>
+		</dependency>
+    </dependencies>
+ 
+    <build>
+        <resources>
+            <resource>
+                <targetPath>.</targetPath>
+                <directory>${basedir}/src/main/resources/</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>config.yml</include>
+                    <include>plugin.yml</include>
+                </includes>
+            </resource>
+            <resource>
+                <targetPath>.</targetPath>
+                <directory>${basedir}/</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>README</include>
+                </includes>
+            </resource>
+        </resources>
+       
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
